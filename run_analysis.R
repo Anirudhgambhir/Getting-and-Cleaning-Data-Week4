@@ -58,7 +58,7 @@ names(updated_Dataset)=gsub("Mag", "Magnitude", names(updated_Dataset))
 names(updated_Dataset)=gsub("BodyBody", "Body", names(updated_Dataset))
 
 ####
-# Tidy set 
+# Tidy set and samving file
 
 grouped_dataset=group_by(updated_Dataset,activityCode,volunteerCode)
 grouped_dataset=grouped_dataset %>% summarise_each(funs(mean))
