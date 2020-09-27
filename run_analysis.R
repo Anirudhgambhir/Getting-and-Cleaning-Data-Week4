@@ -60,9 +60,7 @@ names(updated_Dataset)=gsub("BodyBody", "Body", names(updated_Dataset))
 ####
 # Tidy set and samving file
 
-grouped_dataset=group_by(updated_Dataset,activityCode,volunteerCode)
-grouped_dataset=grouped_dataset %>% summarise_each(funs(mean))
-
+grouped_dataset=updated_Dataset%>%group_by(activityName,activityCode,volunteerCode)%>% summarise_each(funs(mean))
 write.table(grouped_dataset, "tidy_Dataset.txt", row.names = FALSE, quote = FALSE)
 
 
